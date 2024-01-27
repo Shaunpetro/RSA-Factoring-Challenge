@@ -1,22 +1,26 @@
 #!/usr/bin/python3
-Import time
+
+
+import time
 import math
 import sys
+
 
 def pollard_rho(n):
     if n % 2 == 0:
         return 2
-        
+
     x = 2
     y = 2
-    d = 1 
-    f = lambda x: (x**2 + 1) % n
+    d = 1
+    f = def x: (x**2 + 1) % n
+
     while d == 1:
         x = f(x)
-            
         y = f(f(y))
         d = math.gcd(abs(x - y), n)
     return d
+
 
 def main():
     if len(sys.argv) != 2:
@@ -36,8 +40,8 @@ def main():
                 print(f"{num}={factor}*{num // factor}")
 
         if time.time() - start_time > 5:
-                print("Time limit exceeded")
-                exit()
+            print("Time limit exceeded")
+            exit()
 
     except FileNotFoundError:
         print(f"File '{file_path}' not found.")
